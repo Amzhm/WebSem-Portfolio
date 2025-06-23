@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:portfolio="https://amzhm.github.io/WebSem-Portfolio/vocab#">
+
+  <!-- ========== DÉFINITION DU VOCABULAIRE ========== -->
+  
+  <rdf:Description rdf:about="https://amzhm.github.io/WebSem-Portfolio/vocab#">
+    <rdfs:label>Portfolio Vocabulary</rdfs:label>
+    <rdfs:comment>Vocabulaire pour portfolios professionnels</rdfs:comment>
+  </rdf:Description>
+
+  <!-- ========== CLASSES ========== -->
+
+  <!-- Sections du portfolio -->
+  <rdfs:Class rdf:about="https://amzhm.github.io/WebSem-Portfolio/vocab#ProfileSection">
+    <rdfs:label>Section Profil</rdfs:label>
+    <rdfs:comment>Section contenant le profil personnel</rdfs:comment>
+  </rdfs:Class>
+
+  <rdfs:Class rdf:about="https://amzhm.github.io/WebSem-Portfolio/vocab#WelcomeSection">
+    <rdfs:label>Section Accueil</rdfs:label>
+    <rdfs:comment>Section d'accueil du portfolio</rdfs:comment>
+  </rdfs:Class>
+
+  <rdfs:Class rdf:about="https://amzhm.github.io/WebSem-Portfolio/vocab#PersonalInfoSection">
+    <rdfs:label>Section Informations Personnelles</rdfs:label>
+    <rdfs:comment>Section des informations de contact</rdfs:comment>
+  </rdfs:Class>
+
+  <rdfs:Class rdf:about="https://amzhm.github.io/WebSem-Portfolio/vocab#EducationSection">
+    <rdfs:label>Section Formation</rdfs:label>
+    <rdfs:comment>Section du parcours académique</rdfs:comment>
+  </rdfs:Class>
+
+  <rdfs:Class rdf:about="https://amzhm.github.io/WebSem-Portfolio/vocab#ExperienceSection">
+    <rdfs:label>Section Expérience</rdfs:label>
+    <rdfs:comment>Section des expériences professionnelles</rdfs:comment>
+  </rdfs:Class>
+
+  <rdfs:Class rdf:about="https://amzhm.github.io/WebSem-Portfolio/vocab#ProjectSection">
+    <rdfs:label>Section Projets</rdfs:label>
+    <rdfs:comment>Section des projets réalisés</rdfs:comment>
+  </rdfs:Class>
+
+  <rdfs:Class rdf:about="https://amzhm.github.io/WebSem-Portfolio/vocab#SkillsSection">
+    <rdfs:label>Section Compétences</rdfs:label>
+    <rdfs:comment>Section des compétences techniques</rdfs:comment>
+  </rdfs:Class>
+
+  <rdfs:Class rdf:about="https://amzhm.github.io/WebSem-Portfolio/vocab#InterestsSection">
+    <rdfs:label>Section Centres d'intérêt</rdfs:label>
+    <rdfs:comment>Section des centres d'intérêt</rdfs:comment>
+  </rdfs:Class>
+
+  <!-- Navigation -->
+  <rdfs:Class rdf:about="https://amzhm.github.io/WebSem-Portfolio/vocab#PortfolioNavigation">
+    <rdfs:label>Navigation Portfolio</rdfs:label>
+    <rdfs:comment>Élément de navigation du portfolio</rdfs:comment>
+  </rdfs:Class>
+
+  <!-- Éléments académiques -->
+  <rdfs:Class rdf:about="https://amzhm.github.io/WebSem-Portfolio/vocab#AcademicDegree">
+    <rdfs:label>Diplôme Académique</rdfs:label>
+    <rdfs:comment>Diplôme ou certification académique</rdfs:comment>
+  </rdfs:Class>
+
+  <rdfs:Class rdf:about="https://amzhm.github.io/WebSem-Portfolio/vocab#Institution">
+    <rdfs:label>Institution</rdfs:label>
+    <rdfs:comment>Institution éducative</rdfs:comment>
+  </rdfs:Class>
+
+  <!-- Éléments professionnels -->
+  <rdfs:Class rdf:about="https://amzhm.github.io/WebSem-Portfolio/vocab#ProfessionalExperience">
+    <rdfs:label>Expérience Professionnelle</rdfs:label>
+    <rdfs:comment>Expérience de travail ou stage professionnel</rdfs:comment>
+  </rdfs:Class>
+
+  <rdfs:Class rdf:about="https://amzhm.github.io/WebSem-Portfolio/vocab#Company">
+    <rdfs:label>Entreprise</rdfs:label>
+    <rdfs:comment>Entreprise ou organisation employeuse</rdfs:comment>
+  </rdfs:Class>
+
+  <!-- Compétences -->
+  <rdfs:Class rdf:about="https://amzhm.github.io/WebSem-Portfolio/vocab#SkillSet">
+    <rdfs:label>Ensemble de Compétences</rdfs:label>
+    <rdfs:comment>Groupe de compétences techniques liées</rdfs:comment>
+  </rdfs:Class>
+
+  <rdfs:Class rdf:about="https://amzhm.github.io/WebSem-Portfolio/vocab#SkillCategory">
+    <rdfs:label>Catégorie de Compétences</rdfs:label>
+    <rdfs:comment>Catégorie regroupant des compétences similaires</rdfs:comment>
+  </rdfs:Class>
+
+  <rdfs:Class rdf:about="https://amzhm.github.io/WebSem-Portfolio/vocab#TechnologyStack">
+    <rdfs:label>Stack Technologique</rdfs:label>
+    <rdfs:comment>Ensemble de technologies utilisées dans un projet</rdfs:comment>
+  </rdfs:Class>
+
+  <!-- Médias -->
+  <rdfs:Class rdf:about="https://amzhm.github.io/WebSem-Portfolio/vocab#PresentationVideo">
+    <rdfs:label>Vidéo de Présentation</rdfs:label>
+    <rdfs:comment>Vidéo de présentation personnelle ou professionnelle</rdfs:comment>
+  </rdfs:Class>
+
+  <rdfs:Class rdf:about="https://amzhm.github.io/WebSem-Portfolio/vocab#ContactInformation">
+    <rdfs:label>Informations de Contact</rdfs:label>
+    <rdfs:comment>Informations pour contacter la personne</rdfs:comment>
+  </rdfs:Class>
+
+  <!-- ========== PROPRIÉTÉS ========== -->
+
+  <!-- Propriétés personnelles - AJOUT DES DOMAINES ICI -->
+  <rdfs:Property rdf:about="https://amzhm.github.io/WebSem-Portfolio/vocab#currentStatus">
+    <rdfs:label>statut actuel</rdfs:label>
+    <rdfs:comment>Statut professionnel ou académique actuel</rdfs:comment>
+    <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+    <rdfs:range rdfs:Literal/>
+  </rdfs:Property>
+
+  <rdfs:Property rdf:about="https://amzhm.github.io/WebSem-Portfolio/vocab#specialization">
+    <rdfs:label>spécialisation</rdfs:label>
+    <rdfs:comment>Domaines de spécialisation</rdfs:comment>
+    <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+    <rdfs:range rdfs:Literal/>
+  </rdfs:Property>
+
+  <rdfs:Property rdf:about="https://amzhm.github.io/WebSem-Portfolio/vocab#academicLevel">
+    <rdfs:label>niveau académique</rdfs:label>
+    <rdfs:comment>Niveau d'études atteint</rdfs:comment>
+    <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+    <rdfs:range rdfs:Literal/>
+  </rdfs:Property>
+
+  <rdfs:Property rdf:about="https://amzhm.github.io/WebSem-Portfolio/vocab#studyField">
+    <rdfs:label>domaine d'études</rdfs:label>
+    <rdfs:comment>Domaine principal d'études</rdfs:comment>
+    <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+    <rdfs:range rdfs:Literal/>
+  </rdfs:Property>
+
+  <rdfs:Property rdf:about="https://amzhm.github.io/WebSem-Portfolio/vocab#currentRole">
+    <rdfs:label>rôle actuel</rdfs:label>
+    <rdfs:comment>Rôle ou titre professionnel actuel</rdfs:comment>
+    <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+    <rdfs:range rdfs:Literal/>
+  </rdfs:Property>
+
+  <rdfs:Property rdf:about="https://amzhm.github.io/WebSem-Portfolio/vocab#personalDescription">
+    <rdfs:label>description personnelle</rdfs:label>
+    <rdfs:comment>Description ou biographie personnelle</rdfs:comment>
+    <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+    <rdfs:range rdfs:Literal/>
+  </rdfs:Property>
+
+  <!-- Navigation -->
+  <rdfs:Property rdf:about="https://amzhm.github.io/WebSem-Portfolio/vocab#navigationLink">
+    <rdfs:label>lien de navigation</rdfs:label>
+    <rdfs:comment>Lien vers une section du portfolio</rdfs:comment>
+    <rdfs:domain rdf:resource="https://amzhm.github.io/WebSem-Portfolio/vocab#PortfolioNavigation"/>
+    <rdfs:range rdfs:Resource/>
+  </rdfs:Property>
+
+  <rdfs:Property rdf:about="https://amzhm.github.io/WebSem-Portfolio/vocab#sectionName">
+    <rdfs:label>nom de section</rdfs:label>
+    <rdfs:comment>Nom d'une section du portfolio</rdfs:comment>
+    <rdfs:range rdfs:Literal/>
+  </rdfs:Property>
+
+  <!-- Éducation -->
+  <rdfs:Property rdf:about="https://amzhm.github.io/WebSem-Portfolio/vocab#studyPeriod">
+    <rdfs:label>période d'études</rdfs:label>
+    <rdfs:comment>Période pendant laquelle les études ont eu lieu</rdfs:comment>
+    <rdfs:domain rdf:resource="https://amzhm.github.io/WebSem-Portfolio/vocab#AcademicDegree"/>
+    <rdfs:range rdfs:Literal/>
+  </rdfs:Property>
+
+  <rdfs:Property rdf:about="https://amzhm.github.io/WebSem-Portfolio/vocab#educationalInstitution">
+    <rdfs:label>institution éducative</rdfs:label>
+    <rdfs:comment>Institution où les études ont été menées</rdfs:comment>
+    <rdfs:domain rdf:resource="https://amzhm.github.io/WebSem-Portfolio/vocab#AcademicDegree"/>
+    <rdfs:range rdf:resource="https://amzhm.github.io/WebSem-Portfolio/vocab#Institution"/>
+  </rdfs:Property>
+
+  <rdfs:Property rdf:about="https://amzhm.github.io/WebSem-Portfolio/vocab#location">
+    <rdfs:label>lieu</rdfs:label>
+    <rdfs:comment>Lieu géographique</rdfs:comment>
+    <rdfs:range rdfs:Literal/>
+  </rdfs:Property>
+
+  <!-- Expérience professionnelle -->
+  <rdfs:Property rdf:about="https://amzhm.github.io/WebSem-Portfolio/vocab#workPeriod">
+    <rdfs:label>période de travail</rdfs:label>
+    <rdfs:comment>Période d'emploi ou de stage</rdfs:comment>
+    <rdfs:domain rdf:resource="https://amzhm.github.io/WebSem-Portfolio/vocab#ProfessionalExperience"/>
+    <rdfs:range rdfs:Literal/>
+  </rdfs:Property>
+
+  <rdfs:Property rdf:about="https://amzhm.github.io/WebSem-Portfolio/vocab#jobTitle">
+    <rdfs:label>titre du poste</rdfs:label>
+    <rdfs:comment>Titre ou nom du poste occupé</rdfs:comment>
+    <rdfs:domain rdf:resource="https://amzhm.github.io/WebSem-Portfolio/vocab#ProfessionalExperience"/>
+    <rdfs:range rdfs:Literal/>
+  </rdfs:Property>
+
+  <rdfs:Property rdf:about="https://amzhm.github.io/WebSem-Portfolio/vocab#employer">
+    <rdfs:label>employeur</rdfs:label>
+    <rdfs:comment>Entreprise ou organisation employeuse</rdfs:comment>
+    <rdfs:domain rdf:resource="https://amzhm.github.io/WebSem-Portfolio/vocab#ProfessionalExperience"/>
+    <rdfs:range rdf:resource="https://amzhm.github.io/WebSem-Portfolio/vocab#Company"/>
+  </rdfs:Property>
+
+  <rdfs:Property rdf:about="https://amzhm.github.io/WebSem-Portfolio/vocab#workLocation">
+    <rdfs:label>lieu de travail</rdfs:label>
+    <rdfs:comment>Lieu géographique du travail</rdfs:comment>
+    <rdfs:domain rdf:resource="https://amzhm.github.io/WebSem-Portfolio/vocab#ProfessionalExperience"/>
+    <rdfs:range rdfs:Literal/>
+  </rdfs:Property>
+
+  <!-- Compétences -->
+  <rdfs:Property rdf:about="https://amzhm.github.io/WebSem-Portfolio/vocab#technicalSkill">
+    <rdfs:label>compétence technique</rdfs:label>
+    <rdfs:comment>Compétence technique spécifique</rdfs:comment>
+    <rdfs:domain rdf:resource="https://amzhm.github.io/WebSem-Portfolio/vocab#SkillSet"/>
+    <rdfs:range rdfs:Literal/>
+  </rdfs:Property>
+
+  <rdfs:Property rdf:about="https://amzhm.github.io/WebSem-Portfolio/vocab#skill">
+    <rdfs:label>compétence</rdfs:label>
+    <rdfs:comment>Compétence générale</rdfs:comment>
+    <rdfs:domain rdf:resource="https://amzhm.github.io/WebSem-Portfolio/vocab#SkillCategory"/>
+    <rdfs:range rdfs:Literal/>
+  </rdfs:Property>
+
+  <rdfs:Property rdf:about="https://amzhm.github.io/WebSem-Portfolio/vocab#technologyUsed">
+    <rdfs:label>technologie utilisée</rdfs:label>
+    <rdfs:comment>Technologie utilisée dans un projet</rdfs:comment>
+    <rdfs:domain rdf:resource="https://amzhm.github.io/WebSem-Portfolio/vocab#TechnologyStack"/>
+    <rdfs:range rdfs:Literal/>
+  </rdfs:Property>
+
+  <!-- Projets -->
+  <rdfs:Property rdf:about="https://amzhm.github.io/WebSem-Portfolio/vocab#demoLink">
+    <rdfs:label>lien de démonstration</rdfs:label>
+    <rdfs:comment>Lien vers une démonstration du projet</rdfs:comment>
+    <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Project"/>
+    <rdfs:range rdfs:Resource/>
+  </rdfs:Property>
+
+  <!-- Médias -->
+  <rdfs:Property rdf:about="https://amzhm.github.io/WebSem-Portfolio/vocab#videoUrl">
+    <rdfs:label>URL de la vidéo</rdfs:label>
+    <rdfs:comment>URL d'intégration de la vidéo</rdfs:comment>
+    <rdfs:domain rdf:resource="https://amzhm.github.io/WebSem-Portfolio/vocab#PresentationVideo"/>
+    <rdfs:range rdfs:Resource/>
+  </rdfs:Property>
+
+  <rdfs:Property rdf:about="https://amzhm.github.io/WebSem-Portfolio/vocab#videoType">
+    <rdfs:label>type de vidéo</rdfs:label>
+    <rdfs:comment>Type ou catégorie de la vidéo</rdfs:comment>
+    <rdfs:domain rdf:resource="https://amzhm.github.io/WebSem-Portfolio/vocab#PresentationVideo"/>
+    <rdfs:range rdfs:Literal/>
+  </rdfs:Property>
+
+  <rdfs:Property rdf:about="https://amzhm.github.io/WebSem-Portfolio/vocab#videoPlatform">
+    <rdfs:label>plateforme vidéo</rdfs:label>
+    <rdfs:comment>Plateforme d'hébergement de la vidéo</rdfs:comment>
+    <rdfs:domain rdf:resource="https://amzhm.github.io/WebSem-Portfolio/vocab#PresentationVideo"/>
+    <rdfs:range rdfs:Literal/>
+  </rdfs:Property>
+
+  <!-- Contact -->
+  <rdfs:Property rdf:about="https://amzhm.github.io/WebSem-Portfolio/vocab#infoCategory">
+    <rdfs:label>catégorie d'information</rdfs:label>
+    <rdfs:comment>Catégorie des informations de contact</rdfs:comment>
+    <rdfs:domain rdf:resource="https://amzhm.github.io/WebSem-Portfolio/vocab#ContactInformation"/>
+    <rdfs:range rdfs:Literal/>
+  </rdfs:Property>
+
+</rdf:RDF>

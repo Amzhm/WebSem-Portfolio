@@ -1,11 +1,26 @@
 <!DOCTYPE html>
-<html lang="FR">
+<html lang="fr" xmlns="http://www.w3.org/1999/xhtml"
+      prefix="dc: http://purl.org/dc/terms/
+              foaf: http://xmlns.com/foaf/0.1/
+              portfolio: https://amzhm.github.io/WebSem-Portfolio/vocab#">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=`, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio XML/XSL - Amziane HAMRANI</title>
+  <meta name="description" content="Portfolio multilingue d'Amziane HAMRANI, étudiant ingénieur. Démonstration de compétences en XML, XSL et technologies du Web Sémantique." />
+  <link rel="stylesheet" href="content.css" />
+  
+  <!-- Liens hreflang pour le SEO multilingue -->
+  <link rel="alternate" href="?lang=fr" hreflang="fr" />
+  <link rel="alternate" href="?lang=en" hreflang="en" />
+  <link rel="alternate" href="?lang=ar" hreflang="ar" />
+  <link rel="alternate" href="?lang=fr" hreflang="x-default" />
 </head>
 <body>
-    <p>Bonjour vous vous trouvez sur le portfolio de Amziane HAMRANI.</p>
+  <!-- XSL génère TOUT le contenu ici -->
+  <div id="app"></div>
+  
+  <!-- JavaScript minimal -->
+  <script src="main.js"></script>
 </body>
 </html>

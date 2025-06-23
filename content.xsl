@@ -296,7 +296,7 @@
       </h2>
       <div class="timeline-list">
         <xsl:for-each select="project">
-          <div class="timeline-item" typeof="foaf:Project">
+          <div class="timeline-item" typeof="foaf:Project" about="#{@id}">
             <div class="timeline-date" property="dc:subject">
               <xsl:value-of select="domain"/>
             </div>
@@ -316,7 +316,7 @@
               <div class="timeline-desc" property="dc:description">
                 <xsl:value-of select="desc"/>
               </div>
-              <div class="timeline-skills" typeof="portfolio:TechnologyStack">
+              <div class="timeline-skills" typeof="portfolio:TechnologyStack" about="#{@id}-tech">
                 <xsl:for-each select="tech/skill">
                   <span class="badge" property="portfolio:technologyUsed">
                     <xsl:value-of select="."/>

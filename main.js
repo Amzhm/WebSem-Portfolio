@@ -24,6 +24,9 @@ function regenerateAllWithXSL(lang, section) {
         document.getElementById('app').innerHTML = '';
         document.getElementById('app').appendChild(result);
         
+        // Mettre à jour l'attribut lang du HTML
+        document.documentElement.setAttribute('lang', lang);
+        
         // Réattacher les événements après génération XSL
         attachEvents();
     });

@@ -257,7 +257,7 @@
                     <skill>Architecture MVC</skill>
                     <skill>Sérialisation</skill>
                 </tech>
-                <link>projects/patrick-parabox.html</link>
+                <link>https://github.com/Amzhm/sokoban-</link>
             </project>
             <project id="openai-gym">
                 <title>Reinforcement Learning avec OpenAI Gym</title>
@@ -292,7 +292,7 @@
                     <skill>Métaheuristiques</skill>
                     <skill>Recherche opérationnelle</skill>
                 </tech>
-                <link>projects/logistics-placement.html</link>
+                <link>https://github.com/Amzhm/Centres-Logistiques</link>
             </project>
         </lang>
         <lang code="en">
@@ -308,7 +308,7 @@
                     <skill>Next.js</skill>
                     <skill>REST API</skill>
                 </tech>
-                <link>projects/cinetica.html</link>
+                <link>https://github.com/Amzhm/MyFilms</link>
             </project>
             <project id="patrick-parabox">
                 <title>Patrick’s Parabox</title>
@@ -322,7 +322,7 @@
                     <skill>MVC Architecture</skill>
                     <skill>Serialization</skill>
                 </tech>
-                <link>projects/patrick-parabox.html</link>
+                <link>https://github.com/Amzhm/sokoban-</link>
             </project>
 
             <project id="openai-gym">
@@ -359,7 +359,7 @@
                     <skill>Metaheuristics</skill>
                     <skill>Operations Research</skill>
                 </tech>
-                <link>projects/logistics-placement.html</link>
+                <link>https://github.com/Amzhm/Centres-Logistiques</link>
             </project>
         </lang>
         <lang code="ar">
@@ -375,7 +375,7 @@
                     <skill>Next.js</skill>
                     <skill>REST API</skill>
                 </tech>
-                <link>projects/cinetica.html</link>
+                <link>https://github.com/Amzhm/MyFilms</link>
             </project>
             <project id="patrick-parabox">
                 <title>Patrick’s Parabox</title>
@@ -389,7 +389,7 @@
                     <skill>معمارية MVC</skill>
                     <skill>التسلسل (Serialization)</skill>
                 </tech>
-                <link>projects/patrick-parabox.html</link>
+                <link>https://github.com/Amzhm/sokoban-</link>
             </project>
 
             <project id="openai-gym">
@@ -425,7 +425,7 @@
                     <skill>خوارزميات ميتا</skill>
                     <skill>بحوث العمليات</skill>
                 </tech>
-                <link>projects/logistics-placement.html</link>
+                <link>https://github.com/Amzhm/Centres-Logistiques</link>
             </project>
         </lang>
     </projects>

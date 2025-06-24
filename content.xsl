@@ -8,7 +8,7 @@
 
   <!-- Template principal -->
   <xsl:template match="/content">
-    <!-- Boutons de langue -->
+    <!-- Boutons de langue - pas d'annotation RDFa -->
     <div class="lang-btns-top">
       <button class="lang-btn" data-lang="fr" type="button">
         <xsl:if test="$lang='fr'">
@@ -30,28 +30,22 @@
       </button>
     </div>
     
-    <!-- Structure principale avec annotations RDFa pour la personne -->
-    <div class="main-layout" typeof="foaf:Person" about="#amziane" xml:lang="{$lang}">
-      <!-- Métadonnées cachées pour la personne -->
+    <!-- Structure principale - SEULES LES INFOS PRINCIPALES ANNOTÉES -->
+    <div class="main-layout" typeof="foaf:Person" about="#amziane">
+      <!-- Métadonnées principales cachées -->
       <div style="display: none;">
-        <span property="foaf:name" xml:lang="{$lang}">Amziane HAMRANI</span>
-        <span property="foaf:givenName" xml:lang="{$lang}">Amziane</span>
-        <span property="foaf:familyName" xml:lang="{$lang}">HAMRANI</span>
-        <span property="foaf:mbox" resource="mailto:amziane.hamrani@gmail.com">amziane.hamrani@gmail.com</span>
-        <span property="foaf:phone">+33 7 76 97 94 73</span>
-        <span property="portfolio:currentStatus" xml:lang="{$lang}">
+        <span property="foaf:name" xml:lang="{$lang}">
           <xsl:choose>
-            <xsl:when test="$lang='fr'">Étudiant ingénieur informatique</xsl:when>
-            <xsl:when test="$lang='en'">Computer Engineering Student</xsl:when>
-            <xsl:when test="$lang='ar'">طالب مهندس معلوماتية</xsl:when>
+            <xsl:when test="$lang='fr'">Amziane HAMRANI</xsl:when>
+            <xsl:when test="$lang='en'">Amziane HAMRANI</xsl:when>
+            <xsl:when test="$lang='ar'">أمزيان حمراني</xsl:when>
           </xsl:choose>
         </span>
-        <span property="portfolio:specialization" xml:lang="{$lang}">Computer Science, Data Science, Optimization, Software Development</span>
-        <span property="portfolio:academicLevel" xml:lang="{$lang}">Master's degree in Computer Engineering</span>
-        <span property="portfolio:studyField" xml:lang="{$lang}">Computer Science and Engineering</span>
+        <span property="foaf:mbox" resource="mailto:amziane.hamrani@gmail.com"/>
+        <span property="foaf:phone">+33 7 76 97 94 73</span>
       </div>
       
-      <!-- Sidebar -->
+      <!-- Sidebar - PAS D'ANNOTATION -->
       <div class="sidebar">
         <xsl:apply-templates select="sidebar/lang[@code=$lang]"/>
       </div>
@@ -88,93 +82,83 @@
     </div>
   </xsl:template>
 
-  <!-- Template pour la sidebar -->
+  <!-- Sidebar - AUCUNE ANNOTATION -->
   <xsl:template match="sidebar/lang">
-    <div class="sidebar-header" typeof="portfolio:ProfileSection">
-      <img class="avatar" src="https://avatars.githubusercontent.com/u/10880619?v=4" alt="Avatar" 
-           property="foaf:img" resource="https://avatars.githubusercontent.com/u/10880619?v=4"/>
+    <div class="sidebar-header">
+      <img class="avatar" src="https://avatars.githubusercontent.com/u/10880619?v=4" alt="Avatar"/>
       <div class="author">
-        <h1 class="name" property="foaf:name" xml:lang="{@code}">
-          <xsl:value-of select="n"/>
-        </h1>
-        <h2 class="role" property="portfolio:currentRole" xml:lang="{@code}">
-          <xsl:value-of select="role"/>
-        </h2>
-        <p class="bio" property="portfolio:personalDescription" xml:lang="{@code}">
-          <xsl:value-of select="bio"/>
+        <h1 class="name">Amziane HAMRANI</h1>
+        <h2 class="role"><xsl:value-of select="role"/></h2>
+        <p class="bio">
+          <xsl:choose>
+            <xsl:when test="@code='fr'">Portfolio technique démontrant mes compétences en développement web et technologies sémantiques.</xsl:when>
+            <xsl:when test="@code='en'">Technical portfolio demonstrating my skills in web development and semantic technologies.</xsl:when>
+            <xsl:when test="@code='ar'">بورتفوليو تقني يُظهر مهاراتي في تطوير الويب والتقنيات الدلالية.</xsl:when>
+          </xsl:choose>
         </p>
       </div>
     </div>
     
-    <div class="menu" typeof="portfolio:PortfolioNavigation">
+    <div class="menu">
       <!-- Lien Accueil -->
-      <a href="#accueil" class="menu-link" data-section="accueil" property="portfolio:navigationLink">
+      <a href="#accueil" class="menu-link" data-section="accueil">
         <xsl:if test="$section='accueil'">
           <xsl:attribute name="class">menu-link active</xsl:attribute>
         </xsl:if>
-        <span property="portfolio:sectionName" xml:lang="{@code}">
-          <xsl:choose>
-            <xsl:when test="@code='fr'">Accueil</xsl:when>
-            <xsl:when test="@code='en'">Home</xsl:when>
-            <xsl:when test="@code='ar'">الرئيسية</xsl:when>
-          </xsl:choose>
-        </span>
+        <xsl:choose>
+          <xsl:when test="@code='fr'">Accueil</xsl:when>
+          <xsl:when test="@code='en'">Home</xsl:when>
+          <xsl:when test="@code='ar'">الرئيسية</xsl:when>
+        </xsl:choose>
       </a>
       
       <!-- Liens du menu -->
       <xsl:for-each select="menu/item">
-        <a href="#{@id}" class="menu-link" data-section="{@id}" property="portfolio:navigationLink">
+        <a href="#{@id}" class="menu-link" data-section="{@id}">
           <xsl:if test="@id=$section">
             <xsl:attribute name="class">menu-link active</xsl:attribute>
           </xsl:if>
-          <span property="portfolio:sectionName" xml:lang="{../@code}">
-            <xsl:value-of select="."/>
-          </span>
+          <xsl:value-of select="."/>
         </a>
       </xsl:for-each>
     </div>
   </xsl:template>
 
-  <!-- Template pour la présentation -->
+  <!-- Présentation - ANNOTATIONS MINIMALES -->
   <xsl:template match="presentation/lang">
-    <div class="block" typeof="portfolio:WelcomeSection">
-      <h2 class="titre" property="dc:title" xml:lang="{@code}">
-        <xsl:value-of select="title"/>
-      </h2>
-      <div class="timeline-desc" property="dc:description" xml:lang="{@code}">
+    <div class="block">
+      <h2 class="titre"><xsl:value-of select="title"/></h2>
+      <div class="timeline-desc">
         <xsl:copy-of select="desc/node()"/>
       </div>
       
-      <!-- Vidéo YouTube -->
+      <!-- Vidéo YouTube - SEULEMENT ANNOTATION APPROPRIÉE -->
       <xsl:if test="video">
-        <div style="margin-top: 30px;" typeof="portfolio:PresentationVideo">
+        <div style="margin-top: 30px;">
           <iframe src="{video}" width="800" height="450"
                   title="Présentation vidéo" frameborder="0" allowfullscreen="allowfullscreen"
-                  property="portfolio:videoUrl" resource="{video}">
+                  property="portfolio:presentationVideo" resource="{video}">
           </iframe>
-          <span style="display: none;" property="dc:title" xml:lang="{@code}">Présentation vidéo - Amziane HAMRANI</span>
-          <span style="display: none;" property="portfolio:videoType" xml:lang="en">Personal Presentation</span>
-          <span style="display: none;" property="portfolio:videoPlatform" xml:lang="en">YouTube</span>
         </div>
       </xsl:if>
     </div>
   </xsl:template>
 
-  <!-- Infos personnelles -->
+  <!-- Infos personnelles - SEULEMENT CONTACT -->
   <xsl:template match="personal_info/lang">
-    <div class="block" id="infos" typeof="portfolio:PersonalInfoSection">
-      <h2 class="titre" property="dc:title" xml:lang="{@code}">
+    <div class="block" id="infos">
+      <h2 class="titre">
         <xsl:choose>
           <xsl:when test="@code='fr'">À propos</xsl:when>
           <xsl:when test="@code='en'">About</xsl:when>
           <xsl:when test="@code='ar'">حول</xsl:when>
         </xsl:choose>
       </h2>
-      <div class="timeline-item" typeof="portfolio:ContactInformation">
-        <div class="timeline-date" property="portfolio:infoCategory" xml:lang="{@code}">Contact</div>
+      <div class="timeline-item">
+        <div class="timeline-date">Contact</div>
         <div class="timeline-content">
           <ul>
-            <xsl:if test="firstname and n">
+            <xsl:if test="firstname and name">
               <li><strong>
                 <xsl:choose>
                   <xsl:when test="@code='fr'">Nom :</xsl:when>
@@ -182,9 +166,7 @@
                   <xsl:when test="@code='ar'">الاسم:</xsl:when>
                 </xsl:choose>
               </strong> 
-              <span property="foaf:givenName" xml:lang="{@code}"><xsl:value-of select="firstname"/></span>
-              <xsl:text> </xsl:text>
-              <span property="foaf:familyName" xml:lang="{@code}"><xsl:value-of select="n"/></span>
+              <span property="foaf:name"><xsl:value-of select="firstname"/> <xsl:value-of select="name"/></span>
               </li>
             </xsl:if>
             <xsl:if test="email">
@@ -211,10 +193,10 @@
     </div>
   </xsl:template>
 
-  <!-- Formations -->
+  <!-- Formations - TITRE, INSTITUTION ET LIEU ANNOTÉS -->
   <xsl:template match="educations/lang">
-    <div class="block" id="educations" typeof="portfolio:EducationSection">
-      <h2 class="titre" property="dc:title" xml:lang="{@code}">
+    <div class="block" id="educations">
+      <h2 class="titre">
         <xsl:choose>
           <xsl:when test="@code='fr'">Formation</xsl:when>
           <xsl:when test="@code='en'">Education</xsl:when>
@@ -224,21 +206,19 @@
       <div class="timeline-list">
         <xsl:for-each select="education">
           <div class="timeline-item" typeof="portfolio:AcademicDegree">
-            <div class="timeline-date" property="portfolio:studyPeriod" xml:lang="{../@code}">
-              <xsl:value-of select="year"/>
-            </div>
+            <div class="timeline-date"><xsl:value-of select="year"/></div>
             <div class="timeline-content">
-              <h3 class="timeline-title" property="dc:title" xml:lang="{../@code}">
+              <h3 class="timeline-title" property="dc:title">
                 <xsl:value-of select="title"/>
               </h3>
               <div class="timeline-location">
-                <span property="portfolio:educationalInstitution" typeof="portfolio:Institution">
-                  <span property="dc:title" xml:lang="{../@code}"><xsl:value-of select="university"/></span>
-                  <xsl:if test="location">
-                    <span style="color: #64748b;"> • </span>
-                    <span property="portfolio:location" xml:lang="{../@code}"><xsl:value-of select="location"/></span>
-                  </xsl:if>
+                <span property="portfolio:educationalInstitution">
+                  <xsl:value-of select="university"/>
                 </span>
+                <xsl:if test="location">
+                  <span style="color: #64748b;"> • </span>
+                  <span property="portfolio:location"><xsl:value-of select="location"/></span>
+                </xsl:if>
               </div>
             </div>
           </div>
@@ -247,10 +227,10 @@
     </div>
   </xsl:template>
 
-  <!-- Expériences -->
+  <!-- Expériences - POSTE, ENTREPRISE ET COMPÉTENCES ANNOTÉS -->
   <xsl:template match="experiences/lang">
-    <div class="block" id="experiences" typeof="portfolio:ExperienceSection">
-      <h2 class="titre" property="dc:title" xml:lang="{@code}">
+    <div class="block" id="experiences">
+      <h2 class="titre">
         <xsl:choose>
           <xsl:when test="@code='fr'">Expérience</xsl:when>
           <xsl:when test="@code='en'">Experience</xsl:when>
@@ -260,27 +240,21 @@
       <div class="timeline-list">
         <xsl:for-each select="experience">
           <div class="timeline-item" typeof="portfolio:ProfessionalExperience">
-            <div class="timeline-date" property="portfolio:workPeriod" xml:lang="{../@code}">
-              <xsl:value-of select="year"/>
-            </div>
+            <div class="timeline-date"><xsl:value-of select="year"/></div>
             <div class="timeline-content">
               <h3 class="timeline-title">
-                <span property="portfolio:jobTitle" xml:lang="{../@code}"><xsl:value-of select="position"/></span> • 
-                <span property="portfolio:employer" typeof="portfolio:Company">
-                  <span property="dc:title" xml:lang="{../@code}"><xsl:value-of select="company"/></span>
-                </span>
+                <span property="portfolio:jobTitle"><xsl:value-of select="position"/></span> • 
+                <span property="portfolio:employer"><xsl:value-of select="company"/></span>
               </h3>
-              <div class="timeline-location" property="portfolio:workLocation" xml:lang="{../@code}">
+              <div class="timeline-location">
                 <xsl:value-of select="location"/>
               </div>
-              <div class="timeline-desc" property="dc:description" xml:lang="{../@code}">
+              <div class="timeline-desc" property="dc:description">
                 <xsl:value-of select="desc"/>
               </div>
-              <div class="timeline-skills" typeof="portfolio:SkillSet">
+              <div class="timeline-skills">
                 <xsl:for-each select="skills/skill">
-                  <span class="badge" property="portfolio:technicalSkill" xml:lang="en">
-                    <xsl:value-of select="."/>
-                  </span>
+                  <span class="badge" property="portfolio:technicalSkill"><xsl:value-of select="."/></span>
                 </xsl:for-each>
               </div>
             </div>
@@ -290,10 +264,10 @@
     </div>
   </xsl:template>
 
-  <!-- Projets -->
+  <!-- Projets - TITRE, LIEN ET COMPÉTENCES ANNOTÉS -->
   <xsl:template match="projects/lang">
-    <div class="block" id="projects" typeof="portfolio:ProjectSection">
-      <h2 class="titre" property="dc:title" xml:lang="{@code}">
+    <div class="block" id="projects">
+      <h2 class="titre">
         <xsl:choose>
           <xsl:when test="@code='fr'">Projets</xsl:when>
           <xsl:when test="@code='en'">Projects</xsl:when>
@@ -303,42 +277,36 @@
       <div class="timeline-list">
         <xsl:for-each select="project">
           <div class="timeline-item" typeof="foaf:Project" about="#{@id}">
-            <div class="timeline-date" property="dc:subject" xml:lang="{../@code}">
-              <xsl:value-of select="domain"/>
-            </div>
+            <div class="timeline-date"><xsl:value-of select="domain"/></div>
             <div class="timeline-content">
               <h3 class="timeline-title">
                 <xsl:choose>
                   <xsl:when test="link">
                     <a href="{link}" property="foaf:homepage" resource="{link}">
-                      <span property="dc:title" xml:lang="{../@code}"><xsl:value-of select="title"/></span>
+                      <span property="dc:title"><xsl:value-of select="title"/></span>
                     </a>
                   </xsl:when>
                   <xsl:otherwise>
-                    <span property="dc:title" xml:lang="{../@code}"><xsl:value-of select="title"/></span>
+                    <span property="dc:title"><xsl:value-of select="title"/></span>
                   </xsl:otherwise>
                 </xsl:choose>
               </h3>
-              <div class="timeline-desc" property="dc:description" xml:lang="{../@code}">
+              <div class="timeline-desc" property="dc:description">
                 <xsl:value-of select="desc"/>
               </div>
-              <div class="timeline-skills" typeof="portfolio:TechnologyStack" about="#{@id}-tech">
+              <div class="timeline-skills">
                 <xsl:for-each select="tech/skill">
-                  <span class="badge" property="portfolio:technologyUsed" xml:lang="en">
-                    <xsl:value-of select="."/>
-                  </span>
+                  <span class="badge" property="portfolio:technologyUsed"><xsl:value-of select="."/></span>
                 </xsl:for-each>
               </div>
               <xsl:if test="link">
                 <div style="margin-top: 15px;">
-                  <a href="{link}" property="portfolio:demoLink" resource="{link}">
-                    <span xml:lang="{../@code}">
-                      <xsl:choose>
-                        <xsl:when test="../@code='fr'">Voir le projet</xsl:when>
-                        <xsl:when test="../@code='en'">View project</xsl:when>
-                        <xsl:when test="../@code='ar'">عرض المشروع</xsl:when>
-                      </xsl:choose>
-                    </span>
+                  <a href="{link}">
+                    <xsl:choose>
+                      <xsl:when test="../@code='fr'">Voir le projet</xsl:when>
+                      <xsl:when test="../@code='en'">View project</xsl:when>
+                      <xsl:when test="../@code='ar'">عرض المشروع</xsl:when>
+                    </xsl:choose>
                   </a>
                 </div>
               </xsl:if>
@@ -349,10 +317,10 @@
     </div>
   </xsl:template>
 
-  <!-- Compétences -->
+  <!-- Compétences - CATÉGORIES ET COMPÉTENCES ANNOTÉES -->
   <xsl:template match="skills/lang">
-    <div class="block" id="skills" typeof="portfolio:SkillsSection">
-      <h2 class="titre" property="dc:title" xml:lang="{@code}">
+    <div class="block" id="skills">
+      <h2 class="titre">
         <xsl:choose>
           <xsl:when test="@code='fr'">Compétences</xsl:when>
           <xsl:when test="@code='en'">Skills</xsl:when>
@@ -362,15 +330,11 @@
       <div class="timeline-list">
         <xsl:for-each select="category">
           <div class="timeline-item" typeof="portfolio:SkillCategory">
-            <div class="timeline-date" property="dc:title" xml:lang="{../@code}">
-              <xsl:value-of select="@name"/>
-            </div>
+            <div class="timeline-date" property="dc:title"><xsl:value-of select="@name"/></div>
             <div class="timeline-content">
               <div class="timeline-skills">
                 <xsl:for-each select="skill">
-                  <span class="badge" property="portfolio:skill" xml:lang="en">
-                    <xsl:value-of select="."/>
-                  </span>
+                  <span class="badge" property="portfolio:skill"><xsl:value-of select="."/></span>
                 </xsl:for-each>
               </div>
             </div>
@@ -380,10 +344,10 @@
     </div>
   </xsl:template>
 
-  <!-- Centres d'intérêt -->
+  <!-- Centres d'intérêt - SEULEMENT FOAF:INTEREST -->
   <xsl:template match="interests/lang">
-    <div class="block" id="interests" typeof="portfolio:InterestsSection">
-      <h2 class="titre" property="dc:title" xml:lang="{@code}">
+    <div class="block" id="interests">
+      <h2 class="titre">
         <xsl:choose>
           <xsl:when test="@code='fr'">Centres d'intérêt</xsl:when>
           <xsl:when test="@code='en'">Interests</xsl:when>
@@ -391,7 +355,7 @@
         </xsl:choose>
       </h2>
       <div class="timeline-item">
-        <div class="timeline-date" xml:lang="{@code}">
+        <div class="timeline-date">
           <xsl:choose>
             <xsl:when test="@code='fr'">Loisirs</xsl:when>
             <xsl:when test="@code='en'">Hobbies</xsl:when>
@@ -401,9 +365,7 @@
         <div class="timeline-content">
           <ul>
             <xsl:for-each select="interest">
-              <li property="foaf:interest" xml:lang="{../@code}">
-                <xsl:value-of select="."/>
-              </li>
+              <li property="foaf:interest"><xsl:value-of select="."/></li>
             </xsl:for-each>
           </ul>
         </div>

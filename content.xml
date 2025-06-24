@@ -45,7 +45,7 @@
             Sur ce portfolio, découvrez mon parcours, mes projets et bien plus encore !<br/>
             <br/>Bonne visite !
         </desc>
-        <video>https://www.youtube.com/embed/-4GmbBoYQjE?si=P5JucxNFufjQ2lf7</video>
+        <video>https://www.youtube.com/embed/KKNCiRWd_j0?si=cfZXxixgT2YOmWGH&amp;cc_load_policy=1&amp;cc_lang_pref=fr</video>
     </lang>
     <lang code="en">
         <title>Welcome!</title>
@@ -54,7 +54,7 @@
             Explore my background, projects, and much more!<br/>
             <br/>Enjoy your visit!
         </desc>
-        <video>https://www.youtube.com/embed/-4GmbBoYQjE?si=drUg66eRnPHVnNel</video>
+        <video>https://www.youtube.com/embed/KKNCiRWd_j0?si=cfZXxixgT2YOmWGH&amp;cc_load_policy=1&amp;cc_lang_pref=en</video>
     </lang>
     <lang code="ar">
         <title>أهلاً وسهلاً!</title>
@@ -63,7 +63,7 @@
             اكتشف في هذا البورتفوليو مساري ومشاريعي والمزيد!<br/>
             <br/>تمنياتي بزيارة ممتعة!
         </desc>
-        <video>https://www.youtube.com/embed/-4GmbBoYQjE?si=YNPAdagw1eVB1KVs</video>
+        <video>https://www.youtube.com/embed/KKNCiRWd_j0?si=cfZXxixgT2YOmWGH&amp;cc_load_policy=1&amp;cc_lang_pref=ar</video>
     </lang>
 </presentation>
 
@@ -632,7 +632,7 @@
             <category name="الويب الدلالي">
                 <skill>RDF</skill>
                 <skill>RDFa</skill>
-                <skill>OWL</skill>
+                <skill>XML-Schema</skill>
                 <skill>SPARQL</skill>
                 <skill>XML</skill>
                 <skill>XSLT</skill>

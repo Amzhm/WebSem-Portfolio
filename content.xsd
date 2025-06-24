@@ -11,6 +11,20 @@
     <xs:attribute name="code" type="xs:string" use="required"/>
   </xs:complexType>
 
+  <!-- Sidebar -->
+  <xs:complexType name="SidebarType">
+    <xs:sequence>
+      <xs:element name="lang" type="LangType" maxOccurs="3"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Présentation -->
+  <xs:complexType name="PresentationType">
+    <xs:sequence>
+      <xs:element name="lang" type="LangType" maxOccurs="3"/>
+    </xs:sequence>
+  </xs:complexType>
+
   <!-- Infos personnelles -->
   <xs:complexType name="PersonalInfoType">
     <xs:sequence>
@@ -138,10 +152,12 @@
     </xs:sequence>
   </xs:complexType>
 
-  <!-- Racine -->
+  <!-- Racine  -->
   <xs:element name="content">
     <xs:complexType>
       <xs:sequence>
+        <xs:element name="sidebar" type="SidebarType"/>
+        <xs:element name="presentation" type="PresentationType"/>
         <xs:element name="personal_info" type="PersonalInfoType"/>
         <xs:element name="educations" type="EducationsType"/>
         <xs:element name="experiences" type="ExperiencesType"/>

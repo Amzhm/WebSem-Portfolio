@@ -35,6 +35,12 @@ body {
   justify-content: center;
   z-index: 10;
   overflow-y: auto;
+  overflow-y: auto;
+  scrollbar-width: none; 
+  -ms-overflow-style: none;
+}
+.sidebar::-webkit-scrollbar {
+  display: none; 
 }
 
 .sidebar-header {
@@ -150,19 +156,15 @@ body {
   color: #f1f5f9;
   margin-bottom: 40px;
   position: sticky;
-  top: 0px; /* Coller tout en haut */
-  /* Background qui s'étend vers le haut */
+  top: 0px; 
   background: #0f172a;
-  padding: 40px 0 30px 0; /* Plus de padding en haut pour couvrir */
+  padding: 40px 0 30px 0;
   z-index: 100;
-  /* Margin négatif pour étendre la zone de couverture vers le haut */
   margin-top: -20px;
-  /* Bordure en bas pour séparer visuellement */
   border-bottom: 1px solid #1e293b;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
-/* Ajuster l'espacement du contenu pour éviter le chevauchement */
 .timeline-list {
   padding-top: 20px;
 }
@@ -175,7 +177,6 @@ body {
   border-radius: 12px;
   transition: all 0.3s ease;
   position: relative;
-  /* S'assurer que les items sont en-dessous du titre */
   z-index: 1;
 }
 
@@ -229,7 +230,6 @@ body {
   font-size: 0.95rem;
 }
 
-/* Badges de compétences */
 .timeline-skills {
   display: flex;
   flex-wrap: wrap;

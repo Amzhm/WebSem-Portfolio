@@ -8,7 +8,7 @@
 
   <!-- Template principal -->
   <xsl:template match="/content">
-    <!-- Boutons de langue - pas d'annotation RDFa -->
+    <!-- Boutons de langue -->
     <div class="lang-btns-top">
       <button class="lang-btn" data-lang="fr" type="button">
         <xsl:if test="$lang='fr'">
@@ -30,7 +30,7 @@
       </button>
     </div>
     
-    <!-- Structure principale - SEULES LES INFOS PRINCIPALES ANNOTÉES -->
+    <!-- Structure principale  -->
     <div class="main-layout" typeof="foaf:Person" about="#amziane">
       <!-- Métadonnées principales cachées -->
       <div style="display: none;">
@@ -45,7 +45,7 @@
         <span property="foaf:phone">+33 7 76 97 94 73</span>
       </div>
       
-      <!-- Sidebar - PAS D'ANNOTATION -->
+      <!-- Sidebar -->
       <div class="sidebar">
         <xsl:apply-templates select="sidebar/lang[@code=$lang]"/>
       </div>
@@ -82,7 +82,7 @@
     </div>
   </xsl:template>
 
-  <!-- Sidebar - AUCUNE ANNOTATION -->
+  <!-- Sidebar  -->
   <xsl:template match="sidebar/lang">
     <div class="sidebar-header">
       <img class="avatar" src="https://avatars.githubusercontent.com/u/10880619?v=4" alt="Avatar"/>
@@ -124,7 +124,7 @@
     </div>
   </xsl:template>
 
-  <!-- Présentation - ANNOTATIONS MINIMALES -->
+  <!-- Présentation -->
   <xsl:template match="presentation/lang">
     <div class="block">
       <h2 class="titre"><xsl:value-of select="title"/></h2>
@@ -132,7 +132,7 @@
         <xsl:copy-of select="desc/node()"/>
       </div>
       
-      <!-- Vidéo YouTube - SEULEMENT ANNOTATION APPROPRIÉE -->
+      <!-- Vidéo YouTube -->
       <xsl:if test="video">
         <div style="margin-top: 30px;">
           <iframe src="{video}" width="800" height="450"
@@ -144,7 +144,7 @@
     </div>
   </xsl:template>
 
-  <!-- Infos personnelles - SEULEMENT CONTACT -->
+  <!-- Infos personnelles -->
   <xsl:template match="personal_info/lang">
     <div class="block" id="infos">
       <h2 class="titre">
@@ -193,7 +193,7 @@
     </div>
   </xsl:template>
 
-  <!-- Formations - TITRE, INSTITUTION ET LIEU ANNOTÉS -->
+  <!-- Formations -->
   <xsl:template match="educations/lang">
     <div class="block" id="educations">
       <h2 class="titre">
@@ -227,7 +227,7 @@
     </div>
   </xsl:template>
 
-  <!-- Expériences - POSTE, ENTREPRISE ET COMPÉTENCES ANNOTÉS -->
+  <!-- Expériences -->
   <xsl:template match="experiences/lang">
     <div class="block" id="experiences">
       <h2 class="titre">
@@ -264,7 +264,7 @@
     </div>
   </xsl:template>
 
-  <!-- Projets - TITRE, LIEN ET COMPÉTENCES ANNOTÉS -->
+  <!-- Projets  -->
   <xsl:template match="projects/lang">
     <div class="block" id="projects">
       <h2 class="titre">
@@ -317,7 +317,7 @@
     </div>
   </xsl:template>
 
-  <!-- Compétences - CATÉGORIES ET COMPÉTENCES ANNOTÉES -->
+  <!-- Compétences  -->
   <xsl:template match="skills/lang">
     <div class="block" id="skills">
       <h2 class="titre">
@@ -344,7 +344,7 @@
     </div>
   </xsl:template>
 
-  <!-- Centres d'intérêt - SEULEMENT FOAF:INTEREST -->
+  <!-- Centres d'intérêt -->
   <xsl:template match="interests/lang">
     <div class="block" id="interests">
       <h2 class="titre">
